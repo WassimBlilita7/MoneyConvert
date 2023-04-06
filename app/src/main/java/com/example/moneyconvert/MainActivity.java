@@ -2,6 +2,7 @@ package com.example.moneyconvert;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     TextView result ;
 
     RadioButton etd ,dte;
-    Button convert ;
+    Button convert , GO;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         etd =findViewById(R.id.etd);
         dte =findViewById(R.id.dte);
         convert =findViewById(R.id.button);
+        GO = findViewById(R.id.GO);
         convert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,6 +42,17 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        GO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this , Temperature.class);
+                startActivity(intent);
+            }
+        });
+
+
+
     }
     public void EuroToDinar(){
         double value = Double.parseDouble(editnember.getText().toString()) ;
